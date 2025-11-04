@@ -40,7 +40,7 @@ class FlacWriter extends BaseMetadataWriter<VorbisMetadata> {
     // if the original file ends with a vorbis comment or picture block, the isLastBlock flag will not be set to true
     // add a zero-length padding block to ensure that the last block is marked as isLastBlock = true
     if (_isLastBlock == false) {
-      _writeBlock(builder, Uint8List(0), 1, isLastBlock);
+      _writeBlock(builder, Uint8List(0), 1, true);
     }
 
     final rest = reader.lengthSync() - reader.positionSync();
